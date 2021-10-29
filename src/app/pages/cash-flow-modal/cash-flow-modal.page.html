@@ -1,0 +1,78 @@
+<ion-content>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        New Trade
+      </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-segment type="number" [(ngModel)]="trade.type">
+          <ion-segment-button type="number" value="0">
+            <ion-label>Profitable Trade</ion-label>
+          </ion-segment-button>
+          <ion-segment-button type="number" value="1">
+            <ion-label>Losing Trade</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-label position="stacked">Ticker</ion-label>
+        <ion-input [(ngModel)]="trade.title" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Shares Bought</ion-label>
+        <ion-input [(ngModel)]="trade.shares" type="number"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Buy Amount</ion-label>
+        <ion-input [(ngModel)]="trade.value" type="number">$</ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Sell Amount</ion-label>
+        <ion-input [(ngModel)]="trade.valuesell" type="number">$</ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-label position="stacked">Date Traded</ion-label>
+          <ion-datetime display-format="MM/DD/YYYY" picker-format="MM DD YYYY" [(ngModel)]="created_at"></ion-datetime>
+      </ion-item>
+  
+      <ion-item>
+          <ion-label position="stacked">Industry</ion-label>
+          <ion-row no-padding>
+          <ion-col size="4" *ngFor="let cat of categories" >
+            <ion-button expand="block" fill="clear"
+            (click)="trade.category = cat" 
+            [color]="trade.category == cat ? 'primary' : 'medium'">
+              <ion-icon slot="icon-only" [name]="cat.icon"></ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+
+
+      <ion-row class="ion-no-padding">
+          <ion-col size="6">
+            <ion-button expand="full" color="danger" (click)="close()">
+              <ion-icon name="close" slot="icon-only"></ion-icon>
+            </ion-button>
+          </ion-col>
+          <ion-col size="6">
+            <ion-button expand="full" color="success" (click)="addTrade()" [disabled]="trade.title == '' || trade.amount == 0">
+              <ion-icon name="checkmark" slot="icon-only"></ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

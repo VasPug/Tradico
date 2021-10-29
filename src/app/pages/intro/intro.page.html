@@ -1,0 +1,43 @@
+<ion-content>
+
+  <ion-slides pager="true" #slides>
+
+    <ion-slide>
+      <h1>Welcome to Tradico</h1>
+      Track every stock you trade in the stock market!
+      <ion-button expand="button" color="light" (click)="next()">
+        Get Started
+      </ion-button>
+    </ion-slide>
+
+  <ion-slide>
+      <h1>Select your market</h1>
+    
+      <ion-list>
+        <ion-radio-group [(ngModel)]="currency">
+
+          <ion-item>
+            <ion-label>US Market</ion-label>
+            <ion-radio slot="start" value="usd"></ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Europe Market</ion-label>
+            <ion-radio slot="start" value="eur"></ion-radio>
+          </ion-item>
+
+            <ion-item>
+                <ion-label>UK Market</ion-label>
+                <ion-radio slot="start" value="gbp"></ion-radio>
+              </ion-item>
+        </ion-radio-group>
+      </ion-list>
+
+
+      <ion-button expand="button" color="light" (click)="saveAndStart()">
+        Start Tracking
+      </ion-button>
+    </ion-slide>
+  </ion-slides>
+
+</ion-content>
