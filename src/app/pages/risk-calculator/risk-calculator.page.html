@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Risk Calculator</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item>
+    <ion-label position="stacked">Risk Percent</ion-label>
+    <ion-input [(ngModel)]="percentRisk" type="number"></ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label position="stacked">Total Cash</ion-label>
+    <ion-input [(ngModel)]="totalCash" type="number"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Ticker</ion-label>
+    <ion-input [(ngModel)]="ticker" type="text"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Average Trading Range</ion-label>
+    <ion-input [(ngModel)]="ATR" type="number"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Limit Price</ion-label>
+    <ion-input [(ngModel)]="price" type="number"></ion-input>
+  </ion-item>
+
+  <ion-button (click)="analyseRisk()" expand="block" fill="clear" shape="round">
+    Submit
+  </ion-button>
+
+  <p>
+    {{ammountRisked}}
+    {{sharesYouCanBuy}}
+    {{stopLoss}}
+    {{limitSell}}
+  </p>
+</ion-content>

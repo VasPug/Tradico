@@ -19,7 +19,10 @@ const routes: Routes = [
       {
         path: 'settings',
         loadChildren: '../settings/settings.module#SettingsPageModule'
-      },
+      },{
+        path: 'riskCalculator',
+        loadChildren: '../risk-calculator/risk-calculator.module#RiskCalculatorPageModule'
+      }
     ]
   }
 ];
